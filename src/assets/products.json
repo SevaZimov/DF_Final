@@ -1,0 +1,30 @@
+
+[
+  {
+    "id": 1,
+    "name": "Механическая клавиатура RGB",
+    "price": 89.99,
+    "isIn": true,
+    "releaseDate": "2023-05-15",
+    "type": "keyboard",
+    "imageUrl": "assets/images/keyboard1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Беспроводная мышка MX Master",
+    "price": 59.99,
+    "isIn": true,
+    "releaseDate": "2023-02-10",
+    "type": "mouse",
+    "imageUrl": "assets/images/mouse1.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Игровые наушники Pro X",
+    "price": 129.99,
+    "isIn": false,
+    "releaseDate": "2023-07-22",
+    "type": "headphones",
+    "imageUrl": "assets/images/headphones1.jpg"
+  }
+]
