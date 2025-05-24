@@ -48,10 +48,9 @@
     }
   }
 
-
-
   .nav {
-    margin-left: 2%
+    margin-left: 2%;
+    font-family: 'Involve', sans-serif;
   }
 
   .search {
@@ -209,4 +208,11 @@
       font-size: 12px;
     }
   }
+}
+
+@font-face {
+  font-family: 'Involve';
+  src: url('../../../assets/fonts/Involve-SemiBold.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
 }

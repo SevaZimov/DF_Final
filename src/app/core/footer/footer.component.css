@@ -1,0 +1,181 @@
+@font-face {
+    font-family: 'Involve';
+    src: url(/assets/fonts/Involve-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: 'ABeeZee';
+    src: url(/assets/fonts/ABeeZee-Regular.otf);
+}
+
+.footer {
+    background-color: #111;
+    background-repeat: no-repeat;
+    background-size: cover;
+  color: #ccc;
+  padding: 16px 20px 10px;
+  font-family: 'Involve';
+  font-size: 0.95em;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-subtitle-wrapper {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.footer-subtitle {
+  font-size: 0.8em;
+  color: #777;
+  margin-bottom: 4px;
+}
+
+.footer-top-line {
+  height: 2px;
+  background-color: #333;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.footer-brand-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.brand-name-image {
+  height: 32px;
+  object-fit: contain;
+}
+
+.brand-slogan {
+  color: #D1DEED;
+  font-size: 1.3em;
+  white-space: nowrap;
+}
+
+.footer-logo-description {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 24px;
+  flex-wrap: nowrap;
+}
+
+.footer-logo-area {
+  display: flex;
+  align-items: flex-start;
+  
+}
+
+.footer-logo {
+  width: 156px;
+  height: auto;
+}
+
+.footer-description-text-block {
+  font-family: 'Involve', sans-serif;
+  max-width: 500px;
+  color: #7B8EB2;
+}
+
+.footer-secondary {
+  font-size: 0.8em;
+  color: #7B8EB2;
+  margin-bottom: 10px;
+}
+
+.footer-highlight {
+  font-size: 1em;
+  color: #91A8D3;
+  font-weight: 500;
+}
+
+
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.footer-columns div {
+  flex: 1;
+}
+
+.footer-columns h4 {
+  color: #D1DEED;
+  margin-bottom: 14px;
+  font-size: 1.35em;
+}
+
+.footer-columns ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-columns li {
+  margin-bottom: 12px;
+  cursor: pointer;
+  color: #91A8D3;
+}
+
+.footer-brand-links li {
+  margin-bottom: 16px;
+}
+
+
+.footer-right {
+  text-align: right;
+  color: #91A8D3;
+  margin-top: 24px;
+}
+
+.footer-right p {
+  margin: 6px 0;
+}
+
+.footer-address {
+  color: #91A8D3;
+  font-size: 0.95em;
+}
+
+.footer-email {
+  color: #ccc;
+  font-size: 0.9em;
+  font-family: 'ABeeZee';
+}
+
+.social-icons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.social-icons img {
+  width: 30px;
+  height: 30px;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 30px auto 0;
+  text-align: left;
+  font-size: 0.9em;
+  color: #777;
+}

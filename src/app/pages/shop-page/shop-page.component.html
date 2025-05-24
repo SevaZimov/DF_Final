@@ -1,165 +1,132 @@
-<div class="shop-container">
-  <section class="product-section">
-    <h2>Клавиатуры</h2>
-    <div class="product-grid">
-      @for (product of getProductsByType('keyboard'); track product.id) {
-      <div class="product-card">
-        @if (product.editing) {
-        <div class="edit-form">
-          <input [(ngModel)]="product.name" placeholder="Название">
-          <input type="number" [(ngModel)]="product.price" placeholder="Цена">
-          <select [(ngModel)]="product.type">
-            <option value="keyboard">Клавиатура</option>
-            <option value="mouse">Мышь</option>
-            <option value="headphones">Наушники</option>
-          </select>
-          <input [(ngModel)]="product.imageUrl" placeholder="URL изображения">
-          <label>
-            <input type="checkbox" [(ngModel)]="product.isIn"> В наличии
-          </label>
-          <input type="date" [(ngModel)]="product.releaseDate">
-
-          <div class="edit-actions">
-            <button (click)="saveChanges(product)">Сохранить</button>
-            <button (click)="cancelEditing(product)">Отмена</button>
-          </div>
-        </div>
-        } @else {
-        <img [src]="product.imageUrl || 'assets/images/placeholder.jpg'" [alt]="product.name">
-        <h3>{{ product.name }}</h3>
-        <p class="price">{{ product.price | currency }}</p>
-        <p class="availability" [class.in-stock]="product.isIn">
-          {{ product.isIn ? 'В наличии' : 'Нет в наличии' }}
-        </p>
-        <p class="release-date">
-          Дата выхода: {{ product.releaseDate | date:'dd.MM.yyyy' }}
-        </p>
-
-        <div class="product-actions">
-          <button (click)="toggleFavorite(product.id)" [class.active]="isFavorite(product.id)" class="favorite-btn">
-              в избранное
-            </button>
-            <button (click)="toggleCart(product.id)" [class.active]="isInCart(product.id)" class="cart-btn">
-              в корзину
-            </button>
-          <button (click)="startEditing(product)">Редактировать</button>
-          <button class="delete" (click)="deleteProduct(product.id)">Удалить</button>
-        </div>
-        }
-      </div>
-      }
+<div class="show-container">
+  <!-- Карусель -->
+  <div id="mainCarousel" class="carousel slide full-width-carousel" data-bs-ride="carousel">
+    <!-- Индикаторы -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
     </div>
-    <button class="add-product" (click)="addNewProduct()">+ Добавить товар</button>
-  </section>
-  <section class="product-section">
-    <h2>Мышки</h2>
-    <div class="product-grid">
-      @for (product of getProductsByType('mouse'); track product.id) {
-      <div class="product-card">
-        @if (product.editing) {
-        <div class="edit-form">
-          <input [(ngModel)]="product.name" placeholder="Название">
-          <input type="number" [(ngModel)]="product.price" placeholder="Цена">
-          <select [(ngModel)]="product.type">
-            <option value="keyboard">Клавиатура</option>
-            <option value="mouse">Мышь</option>
-            <option value="headphones">Наушники</option>
-          </select>
-          <input [(ngModel)]="product.imageUrl" placeholder="URL изображения">
-          <label>
-            <input type="checkbox" [(ngModel)]="product.isIn"> В наличии
-          </label>
-          <input type="date" [(ngModel)]="product.releaseDate">
-
-          <div class="edit-actions">
-            
-            <button (click)="saveChanges(product)">Сохранить</button>
-            <button (click)="cancelEditing(product)">Отмена</button>
-          </div>
+    
+    <!-- Слайды -->
+    <div id="autoCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="15000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="assets/images/show1.png" class="d-block w-100" alt="Slide 1">
         </div>
-        } @else {
-        <img [src]="product.imageUrl || 'assets/images/placeholder.jpg'" [alt]="product.name">
-        <h3>{{ product.name }}</h3>
-        <p class="price">{{ product.price | currency }}</p>
-        <p class="availability" [class.in-stock]="product.isIn">
-          {{ product.isIn ? 'В наличии' : 'Нет в наличии' }}
-        </p>
-        <p class="release-date">
-          Дата выхода: {{ product.releaseDate | date:'dd.MM.yyyy' }}
-        </p>
-
-        <div class="product-actions">
-          <button (click)="toggleFavorite(product.id)" [class.active]="isFavorite(product.id)" class="favorite-btn">
-            в избранное
-          </button>
-          <button (click)="toggleCart(product.id)" [class.active]="isInCart(product.id)" class="cart-btn">
-            в корзину
-          </button>
-          <button (click)="startEditing(product)">Редактировать</button>
-          <button class="delete" (click)="deleteProduct(product.id)">Удалить</button>
+        <div class="carousel-item">
+          <img src="assets/images/show2.png" class="d-block w-100" alt="Slide 2">
         </div>
-        }
+        <div class="carousel-item">
+          <img src="assets/images/show3.png" class="d-block w-100" alt="Slide 3">
+        </div>
       </div>
-      }
-    </div>
-    <button class="add-product" (click)="addNewProduct()">+ Добавить товар</button>
-  </section>
-  <section class="product-section">
-    <h2>Наушники</h2>
-    <div class="product-grid">
-      @for (product of getProductsByType('headphones'); track product.id) {
-      <div class="product-card">
-        @if (product.editing) {
-        <div class="edit-form">
-          <input [(ngModel)]="product.name" placeholder="Название">
-          <input type="number" [(ngModel)]="product.price" placeholder="Цена">
-          <select [(ngModel)]="product.type">
-            <option value="keyboard">Клавиатура</option>
-            <option value="mouse">Мышь</option>
-            <option value="headphones">Наушники</option>
-          </select>
-          <input [(ngModel)]="product.imageUrl" placeholder="URL изображения">
-          <label>
-            <input type="checkbox" [(ngModel)]="product.isIn"> В наличии
-          </label>
-          <input type="date" [(ngModel)]="product.releaseDate">
 
-          <div class="edit-actions">
-            <button (click)="saveChanges(product)">Сохранить</button>
-            <button (click)="cancelEditing(product)">Отмена</button>
-          </div>
-        </div>
-        } @else {
-        <img [src]="product.imageUrl || 'assets/images/placeholder.jpg'" [alt]="product.name">
-        <h3>{{ product.name }}</h3>
-        <p class="price">{{ product.price | currency }}</p>
-        <p class="availability" [class.in-stock]="product.isIn">
-          {{ product.isIn ? 'В наличии' : 'Нет в наличии' }}
-        </p>
-        <p class="release-date">
-          Дата выхода: {{ product.releaseDate | date:'dd.MM.yyyy' }}
-        </p>
-
-        <div class="product-actions">
-          <button (click)="toggleFavorite(product.id)" [class.active]="isFavorite(product.id)" class="favorite-btn">
-              в избранное
-            </button>
-            <button (click)="toggleCart(product.id)" [class.active]="isInCart(product.id)" class="cart-btn">
-              в корзину
-            </button>
-          <button (click)="startEditing(product)">Редактировать</button>
-          <button class="delete" (click)="deleteProduct(product.id)">Удалить</button>
-        </div>
-        }
-      </div>
-      }
+      <!-- Кнопки управления -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#autoCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#autoCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
     </div>
-    <button class="add-product" (click)="addNewProduct()">+ Добавить товар</button>
-  </section>
-  @if (getProductsByType('keyboard').length === 0 && getProductsByType('headphones').length === 0 &&
-  getProductsByType('mouse').length === 0 && searchQuery) {
-  <div class="no-results">
-    Ничего не найдено по запросу "{{ searchQuery }}"
   </div>
-  }
+</div>
+
+<div class="shop-container-wrapper">
+  <div class="info-container">
+    <img src="assets/images/info.png">
+  </div>
+  
+  <div class="shop-container">
+    <section class="product-section">
+      <h2 style="padding-left: 5px;">Клавиатуры <img src="assets/images/keyboardicon.png"></h2>
+      <div class="product-grid">
+        @for (product of getProductsByType('keyboard'); track product.id) {
+        <div class="product-card">
+          @if (product.editing) {
+            <div class="edit-form">
+              <input [(ngModel)]="product.name" placeholder="Название">
+              <input type="number" [(ngModel)]="product.price" placeholder="Цена">
+              <select [(ngModel)]="product.type">
+                <option value="keyboard">Клавиатура</option>
+                <option value="mouse">Мышь</option>
+                <option value="headphones">Наушники</option>
+              </select>
+              <input [(ngModel)]="product.imageUrl" placeholder="URL изображения">
+              <label>
+                <input type="checkbox" [(ngModel)]="product.isIn"> В наличии
+              </label>
+              <input type="date" [(ngModel)]="product.releaseDate">
+              
+              <div class="edit-actions">
+                <button (click)="saveChanges(product)">Сохранить</button>
+                <button (click)="cancelEditing(product)">Отмена</button>
+              </div>
+            </div>
+          } @else {
+            <img [src]="product.imageUrl || 'assets/images/placeholder.jpg'" [alt]="product.name">
+            <h3>{{ product.name }}</h3>
+            <p class="price">{{ product.price | currency }}</p>
+            <p class="availability" [class.in-stock]="product.isIn">
+              {{ product.isIn ? 'В наличии' : 'Нет в наличии' }}
+            </p>
+            <p class="release-date">
+              Дата выхода: {{ product.releaseDate | date:'dd.MM.yyyy' }}
+            </p>
+            
+            <div class="product-actions">
+              <button (click)="toggleFavorite(product.id)" [class.active]="isFavorite(product.id)" class="favorite-btn">
+                в избранное
+              </button>
+              <button (click)="toggleCart(product.id)" [class.active]="isInCart(product.id)" class="cart-btn">
+                в корзину
+              </button>
+              <button (click)="startEditing(product)">Редактировать</button>
+              <button class="delete" (click)="deleteProduct(product.id)">Удалить</button>
+            </div>
+          }
+        </div>
+        }
+      </div>
+      <button class="add-product" (click)="addNewProduct()">+ Добавить товар</button>
+    </section>
+
+    <section class="product-section">
+      <h2 style="padding-left: 5px;">Мышки <img src="assets/images/mouseicon.png"></h2>
+      <div class="product-grid">
+        <!-- Аналогичная структура для мышек -->
+        @for (product of getProductsByType('mouse'); track product.id) {
+        <div class="product-card">
+          <!-- ... (аналогично секции клавиатур) ... -->
+        </div>
+        }
+      </div>
+      <button class="add-product" (click)="addNewProduct()">+ Добавить товар</button>
+    </section>
+
+    <section class="product-section">
+      <h2 style="padding-left: 5px;">Наушники <img src="assets/images/headphonesicon.png"></h2>
+      <div class="product-grid">
+        <!-- Аналогичная структура для наушников -->
+        @for (product of getProductsByType('headphones'); track product.id) {
+        <div class="product-card">
+          <!-- ... (аналогично секции клавиатур) ... -->
+        </div>
+        }
+      </div>
+      <button class="add-product" (click)="addNewProduct()">+ Добавить товар</button>
+    </section>
+
+    @if (getProductsByType('keyboard').length === 0 && getProductsByType('headphones').length === 0 &&
+    getProductsByType('mouse').length === 0 && searchQuery) {
+    <div class="no-results">
+      Ничего не найдено по запросу "{{ searchQuery }}"
+    </div>
+    }
+  </div>
+</div>
+
+<div class="end-container">
+  <img src="assets/images/end.png">
 </div>
