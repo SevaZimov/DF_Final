@@ -16,10 +16,14 @@
 
 .content-wrapper {
     font-family: 'ZenMaruGothic', sans-serif;
-    font-size: 35px;
+    font-size: 30px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    text-align: justify;
+    padding-left: 10%;
+    padding-top: 5%;
+    padding-right: 10%;
     align-items: center;
 }
 
@@ -36,7 +40,7 @@
 }
 
 .image-container {
-    width: 100%;
+    width: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,13 +67,15 @@
 
 .overlay-text-left {
     font-family: 'ZenMaruGothic', sans-serif;
-    font-size: 30px;
+    font-size: 25px;
     position: absolute;
     top: 300px;
     left: 20px;
     width: 50%;
     max-width: 100%;
-    padding: 20px;
+    padding-top: 15%;
+    padding-left: 10%;
+    text-align: left;
     color: rgb(0, 0, 0);
     border-radius: 8px;
     box-sizing: border-box;
@@ -77,8 +83,11 @@
 
 .text-content-end {
     font-family: 'ZenMaruGothic', sans-serif;
-    font-size: 40px;
+    font-size: 30px;
     display: grid;
+    padding-left: 10%;
+    text-align: left;
+    gap: 5%;
     grid-template-columns: 1fr 1fr;
 }
 
@@ -120,7 +129,7 @@
     flex-direction: column;
     justify-content: flex-end;
     height: 100%;
-    font-size: 30px;
+    font-size: 35px;
 }
 
 @media (max-width: 768px) {
@@ -135,7 +144,7 @@
 
 @media (min-width: 2160px) {
     .overlay-text-left {
-        font-size: 40px;
+        font-size: 30px;
     }
 }
 
