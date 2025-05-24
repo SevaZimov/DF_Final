@@ -113,15 +113,12 @@
         </div>
         }
       </div>
-      <button class="add-product left-align" (click)="addNewProduct()">
-        <img src="assets/images/add.png" alt="Добавить товар" class="icon">
-      </button>
       @if (showOnlyFavorites === false && showOnlyCart === false){
-      
+        <button class="add-product left-align" (click)="addNewProduct('keyboard')">
+          <img src="assets/images/add.png" alt="Добавить товар" class="icon">
+        </button>
       }
-        <button class="add-product" (click)="addNewProduct('keyboard')">+ Добавить товар</button>
     </section>
-
     <section class="product-section">
       <h2 style="padding-left: 5px;">Мышки <img src="assets/images/mouseicon.png"></h2>
       <div class="product-grid">
@@ -180,14 +177,12 @@
         </div>
         }
       </div>
-      <button class="add-product left-align" (click)="addNewProduct()">
-        <img src="assets/images/add.png" alt="Добавить товар" class="icon">
-      </button>
       @if (showOnlyFavorites === false && showOnlyCart === false){
-        <button class="add-product" (click)="addNewProduct('keyboard')">+ Добавить товар</button>
+        <button class="add-product left-align" (click)="addNewProduct('mouse')">
+          <img src="assets/images/add.png" alt="Добавить товар" class="icon">
+        </button>
       }
     </section>
-
     <section class="product-section">
       <h2 style="padding-left: 5px;">Наушники <img src="assets/images/headphonesicon.png"></h2>
       <div class="product-grid">
@@ -246,15 +241,12 @@
         </div>
         }
       </div>
-      <button class="add-product left-align" (click)="addNewProduct()">
-        <img src="assets/images/add.png" alt="Добавить товар" class="icon">
-      </button>
       @if (showOnlyFavorites === false && showOnlyCart === false){
-        <button class="add-product" (click)="addNewProduct('keyboard')">+ Добавить товар</button>
+        <button class="add-product left-align" (click)="addNewProduct('headphones')">
+          <img src="assets/images/add.png" alt="Добавить товар" class="icon">
+        </button>
       }
     </section>
-
-    
   </div>
 </div>
 
