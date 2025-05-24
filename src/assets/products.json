@@ -7,24 +7,78 @@
     "isIn": true,
     "releaseDate": "2023-05-15",
     "type": "keyboard",
-    "imageUrl": "assets/images/key1.png"
+    "imageUrl": "assets/images/31.png"
   },
   {
     "id": 2,
-    "name": "Беспроводная мышка MX Master",
-    "price": 59.99,
+    "name": "Logitech MX Keys S",
+    "price": 99.99,
     "isIn": true,
-    "releaseDate": "2023-02-10",
-    "type": "mouse",
-    "imageUrl": "assets/images/[MConverter.eu] 8fa0e8ce-3a24-4194-bc93-8598b7cbd389 (1).png"
+    "releaseDate": "2023-06-19",
+    "type": "keyboard",
+    "imageUrl": "assets/images/32.png"
   },
   {
     "id": 3,
+    "name": "Keychron B6 Pro Space Grey",
+    "price": 109.99,
+    "isIn": false,
+    "releaseDate": "2024-05-15",
+    "type": "keyboard",
+    "imageUrl": "assets/images/33.png"
+  },
+  {
+    "id": 4,
+    "name": "Logitech MK470 Slim",
+    "price": 209.99,
+    "isIn": true,
+    "releaseDate": "2023-05-15",
+    "type": "keyboard",
+    "imageUrl": "assets/images/34.png"
+  },
+  {
+    "id": 5,
+    "name": "Беспроводная мышка MX Master",
+    "price": 59.99,
+    "isIn": true,
+    "releaseDate": "2023-02-25",
+    "type": "mouse",
+    "imageUrl": "assets/images/11.png"
+  },
+  {
+    "id": 6,
+    "name": "Intro MG250",
+    "price": 109.99,
+    "isIn": true,
+    "releaseDate": "2025-05-10",
+    "type": "mouse",
+    "imageUrl": "assets/images/12.png"
+  },
+  {
+    "id": 7,
+    "name": "FTP103",
+    "price": 89.99,
+    "isIn": true,
+    "releaseDate": "2024-03-12",
+    "type": "mouse",
+    "imageUrl": "assets/images/13.png"
+  },
+  {
+    "id": 8,
     "name": "Игровые наушники Pro X",
     "price": 129.99,
     "isIn": false,
     "releaseDate": "2023-07-22",
     "type": "headphones",
-    "imageUrl": "assets/images/4 2.png"
+    "imageUrl": "assets/images/21.png"
+  },
+  {
+    "id": 9,
+    "name": "A4Tech Bloody G575P",
+    "price": 150.99,
+    "isIn": true,
+    "releaseDate": "2025-04-22",
+    "type": "headphones",
+    "imageUrl": "assets/images/22.png"
   }
 ]
