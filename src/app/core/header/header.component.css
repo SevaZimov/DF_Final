@@ -1,8 +1,3 @@
-@font-face {
-    font-family: 'Involve';
-    src: url(/assets/fonts/Involve-SemiBold.ttf);
-}
-
 .header {
   height: 130%;
   display: flex;
