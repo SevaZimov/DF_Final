@@ -39,6 +39,22 @@
   </div>
   
   <div class="shop-container">
+    @if (showOnlyCart === true && cartItems.length === 0) {
+    <div class="no-results">
+      У вас в корзине пока что ничего нет
+    </div>
+    }
+    @if (showOnlyFavorites === true && favorites.length === 0) {
+    <div class="no-results">
+      У вас в избранном пока что ничего нет
+    </div>
+    }
+    @if (getProductsByType('keyboard').length === 0 && getProductsByType('headphones').length === 0 &&
+    getProductsByType('mouse').length === 0 && searchQuery) {
+    <div class="no-results">
+      Ничего не найдено по запросу "{{ searchQuery }}"
+    </div>
+    }
     <section class="product-section">
       <h2 style="padding-left: 5px;">Клавиатуры <img src="assets/images/keyboardicon.png"></h2>
       <div class="product-grid">
@@ -100,6 +116,10 @@
       <button class="add-product left-align" (click)="addNewProduct()">
         <img src="assets/images/add.png" alt="Добавить товар" class="icon">
       </button>
+      @if (showOnlyFavorites === false && showOnlyCart === false){
+      
+      }
+        <button class="add-product" (click)="addNewProduct('keyboard')">+ Добавить товар</button>
     </section>
 
     <section class="product-section">
@@ -163,6 +183,9 @@
       <button class="add-product left-align" (click)="addNewProduct()">
         <img src="assets/images/add.png" alt="Добавить товар" class="icon">
       </button>
+      @if (showOnlyFavorites === false && showOnlyCart === false){
+        <button class="add-product" (click)="addNewProduct('keyboard')">+ Добавить товар</button>
+      }
     </section>
 
     <section class="product-section">
@@ -226,14 +249,12 @@
       <button class="add-product left-align" (click)="addNewProduct()">
         <img src="assets/images/add.png" alt="Добавить товар" class="icon">
       </button>
+      @if (showOnlyFavorites === false && showOnlyCart === false){
+        <button class="add-product" (click)="addNewProduct('keyboard')">+ Добавить товар</button>
+      }
     </section>
 
-    @if (getProductsByType('keyboard').length === 0 && getProductsByType('headphones').length === 0 &&
-    getProductsByType('mouse').length === 0 && searchQuery) {
-    <div class="no-results">
-      Ничего не найдено по запросу "{{ searchQuery }}"
-    </div>
-    }
+    
   </div>
 </div>
 

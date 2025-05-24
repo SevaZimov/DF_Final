@@ -168,19 +168,18 @@ export class ShopPageComponent implements OnInit {
   this.filterProducts();
 }
 
-  addNewProduct(): void {
-  const newId = this.generateUniqueId();
-  
+  addNewProduct(productType: 'keyboard' | 'mouse' | 'headphones'): void {
   const newProduct: Product = {
-    id: newId,
+    id: this.generateUniqueId(),
     name: 'Новый товар',
     price: 0,
     isIn: false,
     releaseDate: new Date().toISOString().split('T')[0],
-    type: 'keyboard',
+    type: productType,
     editing: true,
     imageUrl: 'assets/images/placeholder.jpg'
   };
+
   this.products.unshift(newProduct);
   this.filteredProducts.unshift(newProduct);
   this.filterProducts();
