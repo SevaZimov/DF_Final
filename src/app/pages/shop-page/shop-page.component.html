@@ -98,7 +98,48 @@
         <!-- Аналогичная структура для мышек -->
         @for (product of getProductsByType('mouse'); track product.id) {
         <div class="product-card">
-          <!-- ... (аналогично секции клавиатур) ... -->
+          @if (product.editing) {
+            <div class="edit-form">
+              <input [(ngModel)]="product.name" placeholder="Название">
+              <input type="number" [(ngModel)]="product.price" placeholder="Цена">
+              <select [(ngModel)]="product.type">
+                <option value="keyboard">Клавиатура</option>
+                <option value="mouse">Мышь</option>
+                <option value="headphones">Наушники</option>
+              </select>
+              <input [(ngModel)]="product.imageUrl" placeholder="URL изображения">
+              <label>
+                <input type="checkbox" [(ngModel)]="product.isIn"> В наличии
+              </label>
+              <input type="date" [(ngModel)]="product.releaseDate">
+              
+              <div class="edit-actions">
+                <button (click)="saveChanges(product)">Сохранить</button>
+                <button (click)="cancelEditing(product)">Отмена</button>
+              </div>
+            </div>
+          } @else {
+            <img [src]="product.imageUrl || 'assets/images/placeholder.jpg'" [alt]="product.name">
+            <h3>{{ product.name }}</h3>
+            <p class="price">{{ product.price | currency }}</p>
+            <p class="availability" [class.in-stock]="product.isIn">
+              {{ product.isIn ? 'В наличии' : 'Нет в наличии' }}
+            </p>
+            <p class="release-date">
+              Дата выхода: {{ product.releaseDate | date:'dd.MM.yyyy' }}
+            </p>
+            
+            <div class="product-actions">
+              <button (click)="toggleFavorite(product.id)" [class.active]="isFavorite(product.id)" class="favorite-btn">
+                в избранное
+              </button>
+              <button (click)="toggleCart(product.id)" [class.active]="isInCart(product.id)" class="cart-btn">
+                в корзину
+              </button>
+              <button (click)="startEditing(product)">Редактировать</button>
+              <button class="delete" (click)="deleteProduct(product.id)">Удалить</button>
+            </div>
+          }
         </div>
         }
       </div>
@@ -111,7 +152,48 @@
         <!-- Аналогичная структура для наушников -->
         @for (product of getProductsByType('headphones'); track product.id) {
         <div class="product-card">
-          <!-- ... (аналогично секции клавиатур) ... -->
+          @if (product.editing) {
+            <div class="edit-form">
+              <input [(ngModel)]="product.name" placeholder="Название">
+              <input type="number" [(ngModel)]="product.price" placeholder="Цена">
+              <select [(ngModel)]="product.type">
+                <option value="keyboard">Клавиатура</option>
+                <option value="mouse">Мышь</option>
+                <option value="headphones">Наушники</option>
+              </select>
+              <input [(ngModel)]="product.imageUrl" placeholder="URL изображения">
+              <label>
+                <input type="checkbox" [(ngModel)]="product.isIn"> В наличии
+              </label>
+              <input type="date" [(ngModel)]="product.releaseDate">
+              
+              <div class="edit-actions">
+                <button (click)="saveChanges(product)">Сохранить</button>
+                <button (click)="cancelEditing(product)">Отмена</button>
+              </div>
+            </div>
+          } @else {
+            <img [src]="product.imageUrl || 'assets/images/placeholder.jpg'" [alt]="product.name">
+            <h3>{{ product.name }}</h3>
+            <p class="price">{{ product.price | currency }}</p>
+            <p class="availability" [class.in-stock]="product.isIn">
+              {{ product.isIn ? 'В наличии' : 'Нет в наличии' }}
+            </p>
+            <p class="release-date">
+              Дата выхода: {{ product.releaseDate | date:'dd.MM.yyyy' }}
+            </p>
+            
+            <div class="product-actions">
+              <button (click)="toggleFavorite(product.id)" [class.active]="isFavorite(product.id)" class="favorite-btn">
+                в избранное
+              </button>
+              <button (click)="toggleCart(product.id)" [class.active]="isInCart(product.id)" class="cart-btn">
+                в корзину
+              </button>
+              <button (click)="startEditing(product)">Редактировать</button>
+              <button class="delete" (click)="deleteProduct(product.id)">Удалить</button>
+            </div>
+          }
         </div>
         }
       </div>
