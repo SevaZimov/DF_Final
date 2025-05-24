@@ -60,8 +60,12 @@
               <input type="date" [(ngModel)]="product.releaseDate">
               
               <div class="edit-actions">
-                <button (click)="saveChanges(product)">Сохранить</button>
-                <button (click)="cancelEditing(product)">Отмена</button>
+                <button (click)="saveChanges(product)" class="save-btn">
+                  <img src="assets/images/save.png" alt="Сохранить" class="icon">
+                </button>
+                <button (click)="cancelEditing(product)" class="cancel-btn">
+                  <img src="assets/images/cancel.png" alt="Отмена" class="icon">
+                </button>
               </div>
             </div>
           } @else {
@@ -77,25 +81,30 @@
             
             <div class="product-actions">
               <button (click)="toggleFavorite(product.id)" [class.active]="isFavorite(product.id)" class="favorite-btn">
-                в избранное
+                <img src="assets/images/favorite.png" alt="В избранное" class="icon">
               </button>
               <button (click)="toggleCart(product.id)" [class.active]="isInCart(product.id)" class="cart-btn">
-                в корзину
+                <img src="assets/images/cart.png" alt="В корзину" class="icon">
               </button>
-              <button (click)="startEditing(product)">Редактировать</button>
-              <button class="delete" (click)="deleteProduct(product.id)">Удалить</button>
+              <button (click)="startEditing(product)" class="edit-btn">
+                <img src="assets/images/edit.png" alt="Редактировать" class="icon">
+              </button>
+              <button class="delete-btn" (click)="deleteProduct(product.id)">
+                <img src="assets/images/delete.png" alt="Удалить" class="icon">
+              </button>
             </div>
           }
         </div>
         }
       </div>
-      <button class="add-product" (click)="addNewProduct()">+ Добавить товар</button>
+      <button class="add-product left-align" (click)="addNewProduct()">
+        <img src="assets/images/add.png" alt="Добавить товар" class="icon">
+      </button>
     </section>
 
     <section class="product-section">
       <h2 style="padding-left: 5px;">Мышки <img src="assets/images/mouseicon.png"></h2>
       <div class="product-grid">
-        <!-- Аналогичная структура для мышек -->
         @for (product of getProductsByType('mouse'); track product.id) {
         <div class="product-card">
           @if (product.editing) {
@@ -114,8 +123,12 @@
               <input type="date" [(ngModel)]="product.releaseDate">
               
               <div class="edit-actions">
-                <button (click)="saveChanges(product)">Сохранить</button>
-                <button (click)="cancelEditing(product)">Отмена</button>
+                <button (click)="saveChanges(product)" class="save-btn">
+                  <img src="assets/images/save.png" alt="Сохранить" class="icon">
+                </button>
+                <button (click)="cancelEditing(product)" class="cancel-btn">
+                  <img src="assets/images/cancel.png" alt="Отмена" class="icon">
+                </button>
               </div>
             </div>
           } @else {
@@ -131,25 +144,30 @@
             
             <div class="product-actions">
               <button (click)="toggleFavorite(product.id)" [class.active]="isFavorite(product.id)" class="favorite-btn">
-                в избранное
+                <img src="assets/images/favorite.png" alt="В избранное" class="icon">
               </button>
               <button (click)="toggleCart(product.id)" [class.active]="isInCart(product.id)" class="cart-btn">
-                в корзину
+                <img src="assets/images/cart.png" alt="В корзину" class="icon">
               </button>
-              <button (click)="startEditing(product)">Редактировать</button>
-              <button class="delete" (click)="deleteProduct(product.id)">Удалить</button>
+              <button (click)="startEditing(product)" class="edit-btn">
+                <img src="assets/images/edit.png" alt="Редактировать" class="icon">
+              </button>
+              <button class="delete-btn" (click)="deleteProduct(product.id)">
+                <img src="assets/images/delete.png" alt="Удалить" class="icon">
+              </button>
             </div>
           }
         </div>
         }
       </div>
-      <button class="add-product" (click)="addNewProduct()">+ Добавить товар</button>
+      <button class="add-product left-align" (click)="addNewProduct()">
+        <img src="assets/images/add.png" alt="Добавить товар" class="icon">
+      </button>
     </section>
 
     <section class="product-section">
       <h2 style="padding-left: 5px;">Наушники <img src="assets/images/headphonesicon.png"></h2>
       <div class="product-grid">
-        <!-- Аналогичная структура для наушников -->
         @for (product of getProductsByType('headphones'); track product.id) {
         <div class="product-card">
           @if (product.editing) {
@@ -168,8 +186,12 @@
               <input type="date" [(ngModel)]="product.releaseDate">
               
               <div class="edit-actions">
-                <button (click)="saveChanges(product)">Сохранить</button>
-                <button (click)="cancelEditing(product)">Отмена</button>
+                <button (click)="saveChanges(product)" class="save-btn">
+                  <img src="assets/images/save.png" alt="Сохранить" class="icon">
+                </button>
+                <button (click)="cancelEditing(product)" class="cancel-btn">
+                  <img src="assets/images/cancel.png" alt="Отмена" class="icon">
+                </button>
               </div>
             </div>
           } @else {
@@ -185,19 +207,25 @@
             
             <div class="product-actions">
               <button (click)="toggleFavorite(product.id)" [class.active]="isFavorite(product.id)" class="favorite-btn">
-                в избранное
+                <img src="assets/images/favorite.png" alt="В избранное" class="icon">
               </button>
               <button (click)="toggleCart(product.id)" [class.active]="isInCart(product.id)" class="cart-btn">
-                в корзину
+                <img src="assets/images/cart.png" alt="В корзину" class="icon">
               </button>
-              <button (click)="startEditing(product)">Редактировать</button>
-              <button class="delete" (click)="deleteProduct(product.id)">Удалить</button>
+              <button (click)="startEditing(product)" class="edit-btn">
+                <img src="assets/images/edit.png" alt="Редактировать" class="icon">
+              </button>
+              <button class="delete-btn" (click)="deleteProduct(product.id)">
+                <img src="assets/images/delete.png" alt="Удалить" class="icon">
+              </button>
             </div>
           }
         </div>
         }
       </div>
-      <button class="add-product" (click)="addNewProduct()">+ Добавить товар</button>
+      <button class="add-product left-align" (click)="addNewProduct()">
+        <img src="assets/images/add.png" alt="Добавить товар" class="icon">
+      </button>
     </section>
 
     @if (getProductsByType('keyboard').length === 0 && getProductsByType('headphones').length === 0 &&
