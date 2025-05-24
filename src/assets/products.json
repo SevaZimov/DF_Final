@@ -7,7 +7,7 @@
     "isIn": true,
     "releaseDate": "2023-05-15",
     "type": "keyboard",
-    "imageUrl": "assets/images/keyboard1.jpg"
+    "imageUrl": "assets/images/key1.png"
   },
   {
     "id": 2,
@@ -16,7 +16,7 @@
     "isIn": true,
     "releaseDate": "2023-02-10",
     "type": "mouse",
-    "imageUrl": "assets/images/mouse1.jpg"
+    "imageUrl": "assets/images/[MConverter.eu] 8fa0e8ce-3a24-4194-bc93-8598b7cbd389 (1).png"
   },
   {
     "id": 3,
@@ -25,6 +25,6 @@
     "isIn": false,
     "releaseDate": "2023-07-22",
     "type": "headphones",
-    "imageUrl": "assets/images/headphones1.jpg"
+    "imageUrl": "assets/images/4 2.png"
   }
 ]

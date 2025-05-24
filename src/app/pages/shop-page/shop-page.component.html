@@ -85,7 +85,7 @@
               </div>
             </div>
           } @else {
-            <img [src]="product.imageUrl || 'assets/images/placeholder.jpg'" [alt]="product.name">
+            <img [src]="product.imageUrl" [alt]="product.name">
             <h3>{{ product.name }}</h3>
             <p class="price">{{ product.price | currency }}</p>
             <p class="availability" [class.in-stock]="product.isIn">
@@ -213,7 +213,7 @@
               </div>
             </div>
           } @else {
-            <img [src]="product.imageUrl || 'assets/images/placeholder.jpg'" [alt]="product.name">
+            <img [src]="product.imageUrl" [alt]="product.name">
             <h3>{{ product.name }}</h3>
             <p class="price">{{ product.price | currency }}</p>
             <p class="availability" [class.in-stock]="product.isIn">
