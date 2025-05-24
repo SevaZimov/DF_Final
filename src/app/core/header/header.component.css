@@ -9,6 +9,7 @@
   .nav-link {
     color: #D1DEED;
   }
+
   .logo-container {
     height: 100%;
     display: flex;
@@ -39,10 +40,9 @@
     }
   }
 
-
-
   .nav {
-    margin-left: 2%
+    margin-left: 2%;
+    font-family: 'Involve', sans-serif;
   }
 
 .search {
@@ -155,4 +155,11 @@
       background-color: #3a4556;
     }
   }
+}
+
+@font-face {
+  font-family: 'Involve';
+  src: url('../../../assets/fonts/Involve-SemiBold.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
 }
