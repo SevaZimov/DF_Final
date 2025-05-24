@@ -39,6 +39,12 @@
   </div>
   
   <div class="shop-container">
+    @if (getProductsByType('keyboard').length === 0 && getProductsByType('headphones').length === 0 &&
+    getProductsByType('mouse').length === 0 && searchQuery) {
+    <div class="no-results">
+      Ничего не найдено по запросу "{{ searchQuery }}"
+    </div>
+    }
     <section class="product-section">
       <h2 style="padding-left: 5px;">Клавиатуры <img src="assets/images/keyboardicon.png"></h2>
       <div class="product-grid">
@@ -200,12 +206,7 @@
       <button class="add-product" (click)="addNewProduct('headphones')">+ Добавить товар</button>
     </section>
 
-    @if (getProductsByType('keyboard').length === 0 && getProductsByType('headphones').length === 0 &&
-    getProductsByType('mouse').length === 0 && searchQuery) {
-    <div class="no-results">
-      Ничего не найдено по запросу "{{ searchQuery }}"
-    </div>
-    }
+    
   </div>
 </div>
 
