@@ -1,10 +1,11 @@
 <header class="header">
-  <div class="logo-container">
+  <div class="logo-container" [class.active]="isHomeActive()" (click)="goToHomePage()">
     <div class="logo">
       <img src="assets/images/logo.png" alt="Логотип">
     </div>
     <div class="logo-silv">
       <img src="assets\images\SILVIO.png" alt="Silvio">
+      <a></a>
     </div>
   </div>
   <nav class="nav">
@@ -26,12 +27,14 @@
     </button>
   </div>
 </div>
-  <div class="actions">
-    <button (click)="openCart()" class="icon-button">
-      <img src="assets/images/shop.png" alt = "cart">
-    </button>
-    <button (click)="toggleFavorites()" class="icon-button">
-      <img src="assets/images/chosen.png" alt = "cart">
-    </button>
-  </div>
+<div class="actions">
+  <button (click)="toggleCart()" class="icon-button">
+    <img src="assets/images/shop.png" alt="cart">
+    <span class="badge">{{ cartItemsCount }}</span>
+  </button>
+  <button (click)="toggleFavorites()" class="icon-button">
+    <img src="assets/images/chosen.png" alt="favorites">
+    <span class="badge">{{ favoritesCount }}</span>
+  </button>
+</div>
 </header>

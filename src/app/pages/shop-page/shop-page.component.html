@@ -36,6 +36,12 @@
         </p>
 
         <div class="product-actions">
+          <button (click)="toggleFavorite(product.id)" [class.active]="isFavorite(product.id)" class="favorite-btn">
+              в избранное
+            </button>
+            <button (click)="toggleCart(product.id)" [class.active]="isInCart(product.id)" class="cart-btn">
+              в корзину
+            </button>
           <button (click)="startEditing(product)">Редактировать</button>
           <button class="delete" (click)="deleteProduct(product.id)">Удалить</button>
         </div>
@@ -66,6 +72,7 @@
           <input type="date" [(ngModel)]="product.releaseDate">
 
           <div class="edit-actions">
+            
             <button (click)="saveChanges(product)">Сохранить</button>
             <button (click)="cancelEditing(product)">Отмена</button>
           </div>
@@ -82,6 +89,12 @@
         </p>
 
         <div class="product-actions">
+          <button (click)="toggleFavorite(product.id)" [class.active]="isFavorite(product.id)" class="favorite-btn">
+            в избранное
+          </button>
+          <button (click)="toggleCart(product.id)" [class.active]="isInCart(product.id)" class="cart-btn">
+            в корзину
+          </button>
           <button (click)="startEditing(product)">Редактировать</button>
           <button class="delete" (click)="deleteProduct(product.id)">Удалить</button>
         </div>
@@ -128,6 +141,12 @@
         </p>
 
         <div class="product-actions">
+          <button (click)="toggleFavorite(product.id)" [class.active]="isFavorite(product.id)" class="favorite-btn">
+              в избранное
+            </button>
+            <button (click)="toggleCart(product.id)" [class.active]="isInCart(product.id)" class="cart-btn">
+              в корзину
+            </button>
           <button (click)="startEditing(product)">Редактировать</button>
           <button class="delete" (click)="deleteProduct(product.id)">Удалить</button>
         </div>
@@ -137,7 +156,8 @@
     </div>
     <button class="add-product" (click)="addNewProduct()">+ Добавить товар</button>
   </section>
-  @if (getProductsByType('keyboard').length === 0 && getProductsByType('headphones').length === 0 && getProductsByType('mouse').length === 0 && searchQuery) {
+  @if (getProductsByType('keyboard').length === 0 && getProductsByType('headphones').length === 0 &&
+  getProductsByType('mouse').length === 0 && searchQuery) {
   <div class="no-results">
     Ничего не найдено по запросу "{{ searchQuery }}"
   </div>

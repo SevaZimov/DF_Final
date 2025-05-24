@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { SearchService } from '../../services/search.service';
 import { FormsModule } from '@angular/forms';
+import { CartService } from '../../services/cart.service';
+import { FavoritesService } from '../../services/favorite.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,29 +12,74 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  isFavorite = false;
-  cartItemsCount = 0;
-  logoContent = `<svg width="227" height="226" viewBox="0 0 227 226" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.817383 122.437L113.676 150.543L226.535 122.437V194.112L113.676 225.717L0.817383 194.112V122.437Z" fill="#D1DEED"/>
-<path d="M226.535 103.28L113.676 75.1744L0.817429 103.28V31.6049L113.676 7.62939e-06L226.535 31.6049V103.28Z" fill="#D1DEED"/>
-<path d="M226.535 122.624L103.915 77.4601L0.817383 103.094L123.437 148.257L226.535 122.624Z" fill="#91A8D3"/>
-</svg>`
+  
   searchQuery = '';
 
-  constructor(private searchService: SearchService) {}
+  constructor(
+    private searchService: SearchService,
+    private favoritesService: FavoritesService,
+    private cartService: CartService,
+    private router: Router) { }
+
+
+  goToHomePage(): void {
+    this.router.navigate(['/shop'], {
+      queryParams: {
+        favorites: null,
+        cart: null,
+        search: null
+      },
+      queryParamsHandling: 'merge'
+    });
+    this.searchQuery = '';
+    this.onSearch();
+  }
+
+isHomeActive(): boolean {
+  return this.router.url === '/shop' && 
+         !this.router.url.includes('favorites') && 
+         !this.router.url.includes('cart') && 
+         !this.router.url.includes('search');
+}
 
   onSearch() {
     this.searchService.updateQuery(this.searchQuery);
   }
 
-  // Избранное
-  toggleFavorites() {
-    this.isFavorite = !this.isFavorite;
+  toggleFavorites(): void {
+    this.router.navigate([], {
+      queryParams: { favorites: true, cart: null },
+      queryParamsHandling: 'merge'
+    });
   }
 
-  // Корзина
-  openCart() {
-    console.log('Открыть корзину');
-    // Переход на страницу корзины или открытие модального окна
+  toggleCart(): void {
+    this.router.navigate([], {
+      queryParams: { cart: true, favorites: null },
+      queryParamsHandling: 'merge'
+    });
   }
+
+  clearFilters(): void {
+    this.router.navigate([], {
+      queryParams: { favorites: null, cart: null },
+      queryParamsHandling: 'merge'
+    });
+  }
+
+  get favoritesCount(): number {
+    return this.favoritesService.getFavorites().length;
+  }
+
+  get cartItemsCount(): number {
+    return this.cartService.getCartItems().length;
+  }
+  isFavoritesActive(): boolean {
+  return this.router.url.includes('favorites=true');
+}
+
+isCartActive(): boolean {
+  return this.router.url.includes('cart=true');
+}
+
 }
