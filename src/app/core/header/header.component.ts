@@ -82,4 +82,8 @@ isCartActive(): boolean {
   return this.router.url.includes('cart=true');
 }
 
+navigateToAbout() {
+    this.router.navigate(['/about']);
+}
+
 }
