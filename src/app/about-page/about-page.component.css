@@ -1,0 +1,161 @@
+.main-container {
+    background-image: url("/assets/images/fon2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    gap: 20px;
+}
+
+.main-content {
+    padding-top: 50px;
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+}
+
+.content-wrapper {
+    font-family: 'ZenMaruGothic', sans-serif;
+    font-size: 35px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+.full-width-block {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.full-width-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+}
+
+.image-container img {
+    top: 50px;
+    width: 80%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.text-content {
+    padding: 10px;
+    color: rgb(255, 255, 255);
+}
+
+.left-sidebar, .right-sidebar {
+    background: #f5f5f5;
+    padding: 15px;
+}
+
+.overlay-text-left {
+    font-family: 'ZenMaruGothic', sans-serif;
+    font-size: 30px;
+    position: absolute;
+    top: 300px;
+    left: 20px;
+    width: 50%;
+    max-width: 100%;
+    padding: 20px;
+    color: rgb(0, 0, 0);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.text-content-end {
+    font-family: 'ZenMaruGothic', sans-serif;
+    font-size: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.text-content-end-back1 {
+    background-image: url("/assets/images/withtext1.png");
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.text-content-end-back2 {
+    background-image: url("/assets/images/withtext2.png");
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.end-container {
+    font-family: 'Sansation', sans-serif;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    height: 750px;
+    justify-content: center;
+    align-items: top;
+}
+
+.end-container-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    font-size: 30px;
+}
+
+@media (max-width: 768px) {
+    .overlay-text-left {
+        width: 80%;
+        left: 10px;
+        padding: 15px;
+        top: 10px;
+        font-size: 10px;
+    }
+}
+
+@media (min-width: 2160px) {
+    .overlay-text-left {
+        font-size: 40px;
+    }
+}
+
+@font-face {
+  font-family: 'Sansation';
+  src: url('/assets/fonts/Sansation-Light.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ZenMaruGothic';
+  src: url('/assets/fonts/ZenMaruGothic-Medium.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('/assets/fonts/Orbitron Regular 400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
