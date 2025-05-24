@@ -1,10 +1,10 @@
 <div class="shop-container">
-      <section class="product-section">
-        <h2>Клавиатуры</h2>
-        <div class="product-grid">
-  @for (product of getProductsByType('keyboard'); track product.id) {
-    <div class="product-card">
-      @if (product.editing) {
+  <section class="product-section">
+    <h2>Клавиатуры</h2>
+    <div class="product-grid">
+      @for (product of getProductsByType('keyboard'); track product.id) {
+      <div class="product-card">
+        @if (product.editing) {
         <div class="edit-form">
           <input [(ngModel)]="product.name" placeholder="Название">
           <input type="number" [(ngModel)]="product.price" placeholder="Цена">
@@ -18,13 +18,13 @@
             <input type="checkbox" [(ngModel)]="product.isIn"> В наличии
           </label>
           <input type="date" [(ngModel)]="product.releaseDate">
-          
+
           <div class="edit-actions">
             <button (click)="saveChanges(product)">Сохранить</button>
             <button (click)="cancelEditing(product)">Отмена</button>
           </div>
         </div>
-      } @else {
+        } @else {
         <img [src]="product.imageUrl || 'assets/images/placeholder.jpg'" [alt]="product.name">
         <h3>{{ product.name }}</h3>
         <p class="price">{{ product.price | currency }}</p>
@@ -34,23 +34,23 @@
         <p class="release-date">
           Дата выхода: {{ product.releaseDate | date:'dd.MM.yyyy' }}
         </p>
-        
+
         <div class="product-actions">
           <button (click)="startEditing(product)">Редактировать</button>
           <button class="delete" (click)="deleteProduct(product.id)">Удалить</button>
         </div>
+        }
+      </div>
       }
     </div>
-  }
-</div>
-<button class="add-product" (click)="addNewProduct()">+ Добавить товар</button>
-      </section>
-      <section class="product-section">
-        <h2>Мышки</h2>
-        <div class="product-grid">
-  @for (product of getProductsByType('mouse'); track product.id) {
-    <div class="product-card">
-      @if (product.editing) {
+    <button class="add-product" (click)="addNewProduct()">+ Добавить товар</button>
+  </section>
+  <section class="product-section">
+    <h2>Мышки</h2>
+    <div class="product-grid">
+      @for (product of getProductsByType('mouse'); track product.id) {
+      <div class="product-card">
+        @if (product.editing) {
         <div class="edit-form">
           <input [(ngModel)]="product.name" placeholder="Название">
           <input type="number" [(ngModel)]="product.price" placeholder="Цена">
@@ -64,13 +64,13 @@
             <input type="checkbox" [(ngModel)]="product.isIn"> В наличии
           </label>
           <input type="date" [(ngModel)]="product.releaseDate">
-          
+
           <div class="edit-actions">
             <button (click)="saveChanges(product)">Сохранить</button>
             <button (click)="cancelEditing(product)">Отмена</button>
           </div>
         </div>
-      } @else {
+        } @else {
         <img [src]="product.imageUrl || 'assets/images/placeholder.jpg'" [alt]="product.name">
         <h3>{{ product.name }}</h3>
         <p class="price">{{ product.price | currency }}</p>
@@ -80,23 +80,23 @@
         <p class="release-date">
           Дата выхода: {{ product.releaseDate | date:'dd.MM.yyyy' }}
         </p>
-        
+
         <div class="product-actions">
           <button (click)="startEditing(product)">Редактировать</button>
           <button class="delete" (click)="deleteProduct(product.id)">Удалить</button>
         </div>
+        }
+      </div>
       }
     </div>
-  }
-</div>
-<button class="add-product" (click)="addNewProduct()">+ Добавить товар</button>
-      </section>
-      <section class="product-section">
-        <h2>Наушники</h2>
-        <div class="product-grid">
-  @for (product of getProductsByType('headphones'); track product.id) {
-    <div class="product-card">
-      @if (product.editing) {
+    <button class="add-product" (click)="addNewProduct()">+ Добавить товар</button>
+  </section>
+  <section class="product-section">
+    <h2>Наушники</h2>
+    <div class="product-grid">
+      @for (product of getProductsByType('headphones'); track product.id) {
+      <div class="product-card">
+        @if (product.editing) {
         <div class="edit-form">
           <input [(ngModel)]="product.name" placeholder="Название">
           <input type="number" [(ngModel)]="product.price" placeholder="Цена">
@@ -110,13 +110,13 @@
             <input type="checkbox" [(ngModel)]="product.isIn"> В наличии
           </label>
           <input type="date" [(ngModel)]="product.releaseDate">
-          
+
           <div class="edit-actions">
             <button (click)="saveChanges(product)">Сохранить</button>
             <button (click)="cancelEditing(product)">Отмена</button>
           </div>
         </div>
-      } @else {
+        } @else {
         <img [src]="product.imageUrl || 'assets/images/placeholder.jpg'" [alt]="product.name">
         <h3>{{ product.name }}</h3>
         <p class="price">{{ product.price | currency }}</p>
@@ -126,15 +126,20 @@
         <p class="release-date">
           Дата выхода: {{ product.releaseDate | date:'dd.MM.yyyy' }}
         </p>
-        
+
         <div class="product-actions">
           <button (click)="startEditing(product)">Редактировать</button>
           <button class="delete" (click)="deleteProduct(product.id)">Удалить</button>
         </div>
+        }
+      </div>
       }
     </div>
+    <button class="add-product" (click)="addNewProduct()">+ Добавить товар</button>
+  </section>
+  @if (getProductsByType('keyboard').length === 0 && getProductsByType('headphones').length === 0 && getProductsByType('mouse').length === 0 && searchQuery) {
+  <div class="no-results">
+    Ничего не найдено по запросу "{{ searchQuery }}"
+  </div>
   }
 </div>
-<button class="add-product" (click)="addNewProduct()">+ Добавить товар</button>
-      </section>
-    </div>

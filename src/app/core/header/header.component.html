@@ -1,5 +1,4 @@
 <header class="header">
-  <!-- Логотип с ссылкой на главную -->
   <div class="logo-container">
     <div class="logo">
       <img src="assets/images/logo.png" alt="Логотип">
@@ -8,33 +7,25 @@
       <img src="assets\images\SILVIO.png" alt="Silvio">
     </div>
   </div>
-
-
-  <!-- Навигация -->
   <nav class="nav">
     <a routerLink="/about" class="nav-link">О БРЕНДЕ</a>
   </nav>
-
-  <!-- Поиск -->
 <div class="search">
   <div class="input-with-button">
     <input 
-      type="text" 
-      placeholder="Поиск..." 
-      class="input-field"
-      (keyup.enter)="onSearch(searchInput.value)" 
-      #searchInput
-    >
+    type="text" 
+    [(ngModel)]="searchQuery" 
+    (input)="onSearch()"
+    placeholder="Поиск товаров..."
+  >
     <button 
       class="input-button" 
-      (click)="onSearch(searchInput.value)"
+      (click)="onSearch()"
     >
       <img src="assets/images/lupa.png" alt="search">
     </button>
   </div>
 </div>
-
-  <!-- Корзина и избранное -->
   <div class="actions">
     <button (click)="openCart()" class="icon-button">
       <img src="assets/images/shop.png" alt = "cart">

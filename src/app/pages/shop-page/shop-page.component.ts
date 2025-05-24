@@ -3,6 +3,8 @@ import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../../interfaces/product';
 import { FormsModule } from '@angular/forms';
+import { SearchService } from '../../services/search.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-shop-page',
@@ -13,15 +15,31 @@ import { FormsModule } from '@angular/forms';
 })
 export class ShopPageComponent implements OnInit {
   products: Product[] = [];
+  filteredProducts: Product[] = [];
   isLoading = true;
   error: string | null = null;
+  private searchSub!: Subscription;
+  searchQuery = '';
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private searchService: SearchService
+  ) {}
 
   ngOnInit(): void {
+    this.loadProducts();
+    this.setupSearch();
+  }
+
+  ngOnDestroy() {
+    this.searchSub.unsubscribe();
+  }
+
+  private loadProducts() {
     this.productService.getProducts().subscribe({
       next: (products) => {
         this.products = products;
+        this.filteredProducts = [...products];
         this.isLoading = false;
       },
       error: (err) => {
@@ -32,9 +50,29 @@ export class ShopPageComponent implements OnInit {
     });
   }
 
-  getProductsByType(type: Product['type']) {
-    return this.products.filter(product => product.type === type);
+  private setupSearch() {
+    this.searchSub = this.searchService.currentQuery
+      .subscribe(query => {
+        this.searchQuery = query;
+        this.filterProducts();
+      });
   }
+
+  private filterProducts() {
+    if (!this.searchQuery) {
+      this.filteredProducts = [...this.products];
+      return;
+    }
+
+    this.filteredProducts = this.products.filter(product =>
+      product.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+    );
+  }
+
+  getProductsByType(type: Product['type']): Product[] {
+    return this.filteredProducts.filter(product => product.type === type);
+  }
+
 
   getAvailabilityStatus(product: Product) {
     return product.isIn ? 'В наличии' : 'Нет в наличии';
