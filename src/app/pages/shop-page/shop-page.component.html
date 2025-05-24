@@ -89,7 +89,7 @@
         </div>
         }
       </div>
-      <button class="add-product" (click)="addNewProduct()">+ Добавить товар</button>
+      <button class="add-product" (click)="addNewProduct('keyboard')">+ Добавить товар</button>
     </section>
 
     <section class="product-section">
@@ -143,7 +143,7 @@
         </div>
         }
       </div>
-      <button class="add-product" (click)="addNewProduct()">+ Добавить товар</button>
+      <button class="add-product" (click)="addNewProduct('mouse')">+ Добавить товар</button>
     </section>
 
     <section class="product-section">
@@ -197,7 +197,7 @@
         </div>
         }
       </div>
-      <button class="add-product" (click)="addNewProduct()">+ Добавить товар</button>
+      <button class="add-product" (click)="addNewProduct('headphones')">+ Добавить товар</button>
     </section>
 
     @if (getProductsByType('keyboard').length === 0 && getProductsByType('headphones').length === 0 &&
