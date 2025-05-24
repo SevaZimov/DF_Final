@@ -39,6 +39,16 @@
   </div>
   
   <div class="shop-container">
+    @if (showOnlyCart === true && cartItems.length === 0) {
+    <div class="no-results">
+      У вас в корзине пока что ничего нет
+    </div>
+    }
+    @if (showOnlyFavorites === true && favorites.length === 0) {
+    <div class="no-results">
+      У вас в избранном пока что ничего нет
+    </div>
+    }
     @if (getProductsByType('keyboard').length === 0 && getProductsByType('headphones').length === 0 &&
     getProductsByType('mouse').length === 0 && searchQuery) {
     <div class="no-results">
@@ -95,13 +105,15 @@
         </div>
         }
       </div>
-      <button class="add-product" (click)="addNewProduct('keyboard')">+ Добавить товар</button>
+      @if (showOnlyFavorites === false && showOnlyCart === false){
+        <button class="add-product" (click)="addNewProduct('keyboard')">+ Добавить товар</button>
+      }
+      
     </section>
 
     <section class="product-section">
       <h2 style="padding-left: 5px;">Мышки <img src="assets/images/mouseicon.png"></h2>
       <div class="product-grid">
-        <!-- Аналогичная структура для мышек -->
         @for (product of getProductsByType('mouse'); track product.id) {
         <div class="product-card">
           @if (product.editing) {
@@ -149,13 +161,14 @@
         </div>
         }
       </div>
-      <button class="add-product" (click)="addNewProduct('mouse')">+ Добавить товар</button>
+      @if (showOnlyFavorites === false && showOnlyCart === false){
+        <button class="add-product" (click)="addNewProduct('keyboard')">+ Добавить товар</button>
+      }
     </section>
 
     <section class="product-section">
       <h2 style="padding-left: 5px;">Наушники <img src="assets/images/headphonesicon.png"></h2>
       <div class="product-grid">
-        <!-- Аналогичная структура для наушников -->
         @for (product of getProductsByType('headphones'); track product.id) {
         <div class="product-card">
           @if (product.editing) {
@@ -203,7 +216,9 @@
         </div>
         }
       </div>
-      <button class="add-product" (click)="addNewProduct('headphones')">+ Добавить товар</button>
+      @if (showOnlyFavorites === false && showOnlyCart === false){
+        <button class="add-product" (click)="addNewProduct('keyboard')">+ Добавить товар</button>
+      }
     </section>
 
     
