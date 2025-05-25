@@ -29,7 +29,7 @@ h3 {
   margin-right: -50vw;
   background-image: url("../../../assets/images/fon1.png");
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
 }
 
 .product-section {
